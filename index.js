@@ -95,28 +95,6 @@ app.get("/api", (req, res) => {
   });
 });
 
-app.use("api/users/:id/posts", postsByUserId);
-
-const userId = app.get("/api/users/:id", (req, res) => {
-    const id = users.find((u) => u.id == req.params.id);
-    res.json()
-});
-
-const postUserId = app.get("/api/posts/:userId", (req, res) => {
-    const userId = posts.find((u) => u.userId == req.params.userId);
-    res.json()
-});
-
-// GET /api/users/:id/posts 
-// Retrieves all posts by a user with the specified id.
-// The code does not work.
-// error "Resource Not Found"
-app.get("/api/users/:id/posts", (req, res, next) => {
-    if (userId == postUserId) {
-        res.json();
-    } else next(); 
-});
-
 // 404 Middleware
 app.use((req, res, next) => {
   next(error(404, "Resource Not Found"));
