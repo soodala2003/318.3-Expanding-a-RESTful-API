@@ -84,8 +84,6 @@ router
 
 // GET /api/users/:id/posts 
 // Retrieves all posts by a user with the specified id.
-// The code does not work.
-// error "Resource Not Found"
 router
   .route("/:id/posts")
   .get((req, res, next) => {
